@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+
+{% block content %}
+<p>Дополнение к блоку (обращаемся к нему и дополняем)</p>
+{% block table_contents %}
+<ul>
+{% for u in users -%}
+    <li>{% block person scoped %} {{u}} {% endblock person %} <!-- scoped нужен, чтобы видеть переменные в блоках внутри блоков (тк без него их не существует для Jinja -->
+{%- endfor -%}
+
+</ul>
+{% endblock table_contents %}
+{% endblock content %}
+
+</body>
+</html>

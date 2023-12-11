@@ -1,0 +1,9 @@
+{% import 'dialogs.html' as dlg %}
+<!-- Или  from 'dialogs.html' import dialog_1 as dlg  - тогда вместо dlg.dialog_1() можно прописывать dlg() -->
+{% include 'header.html' ignore missing %}
+<!-- {% include 'header325325.html' ignore missing %} - не прогрузит не найденный файл, если указан неверно вместо выведения ошибки и стопа программы -->
+{% include ['page1.html', 'page2.html'] ignore missing %}
+<!-- В [] ищет по очереди первый найденный и подставляет его (page1 нашел - page2 не отображается) -->
+{{ dlg.dialog_1('Внимание', 'Это тестовый диалог') }}
+{% include 'footer.html' %}
+<!-- Jinja считывает комманды и в комментариях, будь внимательнее, будущий я :) -->
